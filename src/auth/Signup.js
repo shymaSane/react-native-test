@@ -9,7 +9,6 @@ import {
 } from 'react-native';
 import styles from '../styling/styles';
 import UserOrientations from '../assets/UserOrientations';
-import {SafeAreaView} from 'react-native-safe-area-context';
 
 const Signup = ({navigation}) => {
   const WIDTH = UserOrientations().width;
@@ -17,8 +16,8 @@ const Signup = ({navigation}) => {
 
   return (
     <View style={styles.signupContainer}>
-      <View style={{width: WIDTH*.85}}>
-        <ScrollView style={{flexGrow:1}}>
+      <View style={{width: WIDTH * 0.85}}>
+        <ScrollView style={{flexGrow: 1}}>
           {/* logo section */}
           <View style={styles.signupS1Container}>
             <Image
@@ -89,12 +88,14 @@ const Signup = ({navigation}) => {
               By clicking below, you agree to Wattapads Terms Of Service {`&`}
               Privacy Policy.
             </Text>
-            <TouchableOpacity>
-              <Text>Start Reading</Text>
+            <TouchableOpacity style={styles.signupSubmitButton}>
+              <Text style={styles.submitButtonText}>Start Reading</Text>
             </TouchableOpacity>
           </View>
           {/* footer section */}
-          <Text>Have an account? Log in</Text>
+          <TouchableOpacity onPress={() => navigation.navigate('Login')}>
+            <Text style={styles.accountReminder}>Have an account? Log in</Text>
+          </TouchableOpacity>
         </ScrollView>
       </View>
     </View>

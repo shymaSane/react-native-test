@@ -9,6 +9,7 @@ const COLORS = {
   lightGrey: '#cecece',
   grey: '#949494',
   blue: '#3b5998',
+  black: '#000000'
 };
 const signupButton = {
   flex: 1,
@@ -27,8 +28,9 @@ const styles = StyleSheet.create({
   signupContainer: {
     flex: 1,
     alignItems: 'center',
-    justifyContent:'center'
-    
+    justifyContent: 'center',
+    marginTop: 30,
+    marginBottom:30
   },
   signupS1Container: {
     flexDirection: 'column',
@@ -95,7 +97,6 @@ const styles = StyleSheet.create({
     paddingRight: 5,
   },
   inputsContainer: {
-    flex: 1,
     borderWidth: 1,
     borderColor: COLORS.grey,
     borderRadius: 5,
@@ -103,7 +104,6 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   inputContainer: {
-    flex: 1,
     flexDirection: 'row',
     justifyContent: 'flex-start',
     alignItems: 'center',
@@ -129,10 +129,10 @@ const styles = StyleSheet.create({
     flex: 1,
     fontFamily: 'Montserrat-Medium',
     color: COLORS.white,
+    fontSize:12
   },
   signupS3Container: {
     justifyContent: 'center',
-    alignItems: 'center',
   },
   signupS3Text: {
     textAlign: 'center',
@@ -141,7 +141,20 @@ const styles = StyleSheet.create({
     color: COLORS.white,
     fontSize: 12,
   },
-  signupSubmitButton: {},
+  signupSubmitButton: {
+    flex: 1,
+    ...signupButton,
+    backgroundColor: COLORS.darkOrange,
+  },
+  submitButtonText:{
+    color: COLORS.black,
+    fontFamily: 'Montserrat-SemiBold',
+  },
+  accountReminder:{
+    textAlign:'center',
+    color:COLORS.darkOrange,
+    fontFamily: 'Montserrat-SemiBold',
+  }
 });
 
 export default styles;
