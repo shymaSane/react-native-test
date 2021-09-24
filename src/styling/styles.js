@@ -7,9 +7,10 @@ const COLORS = {
   lightPink: '#feede6',
   white: '#ffffff',
   lightGrey: '#cecece',
+  darkGrey: '#3d3d3d',
   grey: '#949494',
   blue: '#3b5998',
-  black: '#000000'
+  black: '#000000',
 };
 const signupButton = {
   flex: 1,
@@ -30,7 +31,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginTop: 30,
-    marginBottom:30
+    marginBottom: 30,
   },
   signupS1Container: {
     flexDirection: 'column',
@@ -129,7 +130,7 @@ const styles = StyleSheet.create({
     flex: 1,
     fontFamily: 'Montserrat-Medium',
     color: COLORS.white,
-    fontSize:12
+    fontSize: 12,
   },
   signupS3Container: {
     justifyContent: 'center',
@@ -146,15 +147,66 @@ const styles = StyleSheet.create({
     ...signupButton,
     backgroundColor: COLORS.darkOrange,
   },
-  submitButtonText:{
+  submitButtonText: {
     color: COLORS.black,
     fontFamily: 'Montserrat-SemiBold',
   },
-  accountReminder:{
-    textAlign:'center',
-    color:COLORS.darkOrange,
+  accountReminder: {
+    textAlign: 'center',
+    color: COLORS.darkOrange,
     fontFamily: 'Montserrat-SemiBold',
-  }
+  },
+  //Header Style
+  headerContainer: {
+    flexDirection: 'row',
+    height: 70,
+    justifyContent: 'space-between',
+    alignContent: 'center',
+    borderBottomColor: COLORS.darkGrey,
+    borderBottomWidth: 0.5,
+    padding: 10,
+  },
+  headerS1Container: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  headerS2Container: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'flex-end',
+  },
+  headerPreferencesIcon: {
+    width: 20,
+    height: 25,
+    resizeMode: 'contain',
+    marginRight: 20,
+  },
+  headerUserIcon: {
+    resizeMode: 'cover',
+    width: '100%',
+    height: '100%',
+    borderRadius: 50,
+  },
+  headerIconContainer: {
+    width: 40,
+    height: 40,
+    borderRadius: 50,
+    borderWidth: 2,
+    borderColor: COLORS.grey,
+  },
+  headerMenuIcon: {
+    width: 25,
+    height: 30,
+  },
+  headerText: {
+    fontFamily: 'Montserrat-Medium',
+    color: COLORS.lightGrey,
+    marginLeft: 20,
+    letterSpacing: 1,
+    fontSize: 20,
+  },
 });
 
 export default styles;
