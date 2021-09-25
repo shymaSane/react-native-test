@@ -4,9 +4,9 @@ import {View, Text, useColorScheme} from 'react-native';
 import theme from './styling/themes';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
-import Signup from './screens/Signup';
-import Login from './screens/Login';
-import Home from './screens/Home';
+import Signup from './screens/authStack/Signup';
+import Login from './screens/authStack/Login';
+import Home from './screens/appStack/Home';
 
 const Stack = createStackNavigator();
 
