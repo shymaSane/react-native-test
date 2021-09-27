@@ -1,7 +1,6 @@
 import 'react-native-gesture-handler';
 import React from 'react';
-import {View, Text, useColorScheme} from 'react-native';
-import theme from './styling/themes';
+import {ApolloProvider} from '@apollo/client';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import Signup from './screens/authStack/Signup';
@@ -9,13 +8,14 @@ import Login from './screens/authStack/Login';
 import Home from './screens/appStack/Home';
 import {store} from './redux/store';
 import {Provider} from 'react-redux';
+import {apolloClient} from './apollo/client';
 
 const Stack = createStackNavigator();
 
 const App = () => {
   return (
-    <Provider store={store}>
-      <View style={theme.dark}>
+    <ApolloProvider client={apolloClient}>
+      <Provider store={store}>
         <NavigationContainer>
           <Stack.Navigator
             initialRouteName="Home"
@@ -30,8 +30,8 @@ const App = () => {
             <Stack.Screen name="Login" component={Login} />
           </Stack.Navigator>
         </NavigationContainer>
-      </View>
-    </Provider>
+      </Provider>
+    </ApolloProvider>
   );
 };
 
