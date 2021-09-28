@@ -3,9 +3,9 @@ const {ApolloServer, gql} = require('apollo-server');
 const typeDefs = gql`
   type User {
     id: ID!
-    userName: String
-    email: String
-    password: String
+    userName: String!
+    email: String!
+    password: String!
     # birthday: String
     avatar: String
     stories: [Story]
@@ -21,9 +21,13 @@ const typeDefs = gql`
   }
 
   type Query {
-    users: [User]
-    stories: [Story]
+    users: [User!]!
+    stories: [Story!]!
     user(id: ID!): User
+  }
+
+  type Mutation {
+    newUser(userName: String!, email: String!, password: String!): User!
   }
 `;
 
@@ -63,6 +67,18 @@ const resolvers = {
     users: () => writers,
     user: (parent, args) => {
       return writers.find(writer => writer.id === args.id);
+    },
+  },
+  Mutation: {
+    newUser: (parent, args) => {
+      let userValue = {
+        id: writers.length + 1,
+        userName: args.userName,
+        email: args.email,
+        password: args.password,
+      };
+      writers.push(userValue);
+      return userValue;
     },
   },
 };
