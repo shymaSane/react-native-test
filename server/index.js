@@ -1,4 +1,7 @@
-const {ApolloServer, gql} = require('apollo-server');
+const express = require('express');
+const {ApolloServer, gql} = require('apollo-server-express');
+
+const port = process.env.PORT || 4000;
 
 const typeDefs = gql`
   type User {
@@ -83,10 +86,14 @@ const resolvers = {
   },
 };
 
-//how to query for it :
+const startApolloServer = async (typeDefs, resolvers) => {
+  const app = express();
+  const server = new ApolloServer({typeDefs, resolvers});
+  await server.start();
+  server.applyMiddleware({app, path: '/home'});
+  app.listen({port}, () => {
+    console.log('app is running');
+  });
+};
 
-const server = new ApolloServer({typeDefs, resolvers});
-
-server.listen().then(({url}) => {
-  console.log(`🚀  Server ready at ${url}`);
-});
+startApolloServer(typeDefs, resolvers);
