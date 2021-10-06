@@ -1,5 +1,5 @@
 import express from 'express';
-import {graphServer} from './graphql.mjs';
+import {graphServer} from './graphql.js';
 
 const port = process.env.PORT || 4000;
 
